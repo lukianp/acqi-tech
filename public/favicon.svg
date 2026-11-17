@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ACQI">
+  <rect width="32" height="32" fill="#fbfaf5"/>
+  <rect x="0.5" y="0.5" width="31" height="31" fill="none" stroke="#14213d" stroke-opacity="0.25"/>
+  <path d="M7 26.5 15.6 5.5h0.9L25 26.5" fill="none" stroke="#14213d" stroke-width="2.4" stroke-linejoin="miter"/>
+  <path d="M11.2 18.6h9.6" fill="none" stroke="#c1121f" stroke-width="2.4"/>
+</svg>

@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('support')).sort((a, b) => a.data.order - b.data.order);
+const topics = [...new Set(articles.map((a) => a.data.topic))];
+
+const fmt = (iso: string) =>
+  new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+---
+
+<Base
+  title="Support and technical notes"
+  description="Technical notes on estate discovery, consolidation, migration and post-close operations, written by the ACQI engineering team."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Support</p>
+      <h1 class="reveal reveal-2">Notes from the work, not a knowledge base of screenshots.</h1>
+      <p class="lede reveal reveal-3">
+        These are the arguments we make to customers when they ask how something should be done.
+        They are written to be useful to anyone running an integration, whether or not they use
+        ACQI.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">Articles</h2>
+        <p class="micro section__note">{articles.length} published · topics: {topics.length}</p>
+      </div>
+
+      <ul class="toc">
+        {articles.map((article) => (
+          <li>
+            <a href={`/support/${article.id}/`}>
+              <span class="toc__label">
+                {article.data.title}
+                <span class="small" style="display:block;margin-top:0.2rem">{article.data.description}</span>
+              </span>
+              <span class="toc__leader" aria-hidden="true"></span>
+              <span class="toc__meta">{article.data.topic} · {fmt(article.data.updated)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="cols cols--sidebar">
+        <div>
+          <p class="micro mb-1">Support model</p>
+          <p class="lede mb-0">No ticket portal. A named engineer.</p>
+        </div>
+        <div>
+          <p>
+            Customers on a support plan reach an engineer who has been in the installation. There
+            is no tier-one script and no chatbot. During business hours, in the UK, usually within
+            a few hours.
+          </p>
+          <p class="mb-0">
+            For an existing installation, write to
+            <a href="mailto:support@acqi.tech">support@acqi.tech</a> with the version, the run
+            identifier and what changed. For everything else, the
+            <a href="/contact/">contact form</a> reaches the same person.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

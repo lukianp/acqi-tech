@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+.swa/
+*.log
+.DS_Store
+api/preview/_app.js

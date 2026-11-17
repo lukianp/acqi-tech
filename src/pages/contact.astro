@@ -1,0 +1,197 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+
+<Base
+  title="Contact"
+  description="Contact ACQI Technologies about a deployment, a scoping conversation, security or support."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Contact</p>
+      <h1 class="reveal reveal-2">Tell us about the estate, not the budget.</h1>
+      <p class="lede reveal reveal-3">
+        A useful first message names the target, the systems that matter and the date the answer
+        is needed. Everything else can follow.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cols cols--sidebar">
+        <div>
+          <p class="micro mb-1">Direct</p>
+          <p class="mb-2"><a href={`mailto:${SITE.generalEmail}`}>{SITE.generalEmail}</a></p>
+          <p class="micro mb-1">Security</p>
+          <p class="mb-2"><a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a></p>
+          <p class="micro mb-1">Support</p>
+          <p class="mb-2"><a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a></p>
+          <p class="micro mb-1">Preview access</p>
+          <p class="small mb-0">
+            Issued through the fund's application channel, or on request from a named contact.
+            The password is never published on this site.
+          </p>
+        </div>
+
+        <div>
+          <form class="form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="200" />
+            </div>
+            <div class="field">
+              <label for="organisation">Organisation</label>
+              <input id="organisation" name="organisation" type="text" autocomplete="organization" maxlength="160" />
+            </div>
+            <div class="field">
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic">
+                <option value="deployment">Deployment or scoping</option>
+                <option value="preview">Preview access</option>
+                <option value="security">Security or procurement review</option>
+                <option value="support">Support for an existing installation</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required maxlength="6000" aria-describedby="message-hint"></textarea>
+              <p class="hint" id="message-hint">Please do not send confidential target data through this form.</p>
+            </div>
+
+            <div class="hp" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button class="btn btn--solid" type="submit" id="contact-submit">Send message</button>
+            <p class="form__status" id="contact-status" role="status" aria-live="polite"></p>
+            <noscript>
+              <p class="note mt-2">
+                This form needs JavaScript. You can email
+                <a href={`mailto:${SITE.generalEmail}`}>{SITE.generalEmail}</a> instead.
+              </p>
+            </noscript>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">What happens to your message</h2>
+      </div>
+      <div class="cols cols--3">
+        <div class="card">
+          <h3>Delivery</h3>
+          <p>The form posts to an endpoint on this site and is handed to our mail provider. If that path is not configured, the form reports an error and gives you a mail link instead of pretending to send.</p>
+        </div>
+        <div class="card">
+          <h3>Retention</h3>
+          <p>Enquiries are kept for as long as the conversation is live, then archived for two years for record-keeping. Details are in the <a href="/legal/privacy/">privacy notice</a>.</p>
+        </div>
+        <div class="card">
+          <h3>No CRM</h3>
+          <p>There is no marketing automation behind this form. No sequence, no scoring, no tracking pixel. A person reads it and replies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const status = document.getElementById('contact-status');
+    const submit = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+    const mailtoFor = (data: { name: string; email: string; organisation: string; topic: string; message: string }) => {
+      const subject = `Website enquiry: ${data.topic || 'general'}`;
+      const body = [
+        `Name: ${data.name}`,
+        `Email: ${data.email}`,
+        `Organisation: ${data.organisation}`,
+        '',
+        data.message,
+      ].join('\r\n');
+      return `mailto:hello@acqi.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+
+    const showError = (text: string, data: Parameters<typeof mailtoFor>[0]) => {
+      if (!status) return;
+      status.dataset.state = 'error';
+      status.textContent = '';
+      const p = document.createElement('span');
+      p.textContent = text + ' ';
+      const a = document.createElement('a');
+      a.href = mailtoFor(data);
+      a.textContent = 'Send it by email instead';
+      status.append(p, a);
+    };
+
+    if (form) {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        const fd = new FormData(form);
+        const data = {
+          name: String(fd.get('name') || '').trim(),
+          email: String(fd.get('email') || '').trim(),
+          organisation: String(fd.get('organisation') || '').trim(),
+          topic: String(fd.get('topic') || 'other'),
+          message: String(fd.get('message') || '').trim(),
+          website: String(fd.get('website') || ''),
+        };
+
+        if (status) {
+          status.dataset.state = 'busy';
+          status.textContent = 'Sending.';
+        }
+        if (submit) submit.disabled = true;
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+          let payload: { ok?: boolean; error?: string } = {};
+          try {
+            payload = await res.json();
+          } catch {
+            payload = {};
+          }
+
+          if (res.ok && payload.ok === true) {
+            form.reset();
+            if (status) {
+              status.dataset.state = 'success';
+              status.textContent = 'Message received. A person will reply, usually within two working days.';
+            }
+            return;
+          }
+
+          const reason =
+            payload.error === 'mail_unconfigured'
+              ? 'The mail path is not configured yet, so nothing was sent.'
+              : payload.error === 'invalid'
+                ? 'Some fields were rejected. Check the name, email and message.'
+                : 'The message could not be delivered.';
+          showError(reason, data);
+        } catch {
+          showError('The message could not be delivered. The connection failed.', data);
+        } finally {
+          if (submit) submit.disabled = false;
+        }
+      });
+    }
+  </script>
+</Base>

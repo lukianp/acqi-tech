@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ACQI preview</title>
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#fbfaf5" />
+    <meta name="referrer" content="no-referrer" />
+    <style>{{CSS}}</style>
+  </head>
+  <body>
+    <div class="banner" role="note">
+      <span class="banner__tag">Preview</span>
+      <span class="banner__text">Preview with sample data. Not connected to any environment.</span>
+      <a class="banner__back" href="https://acqi.tech/">acqi.tech</a>
+    </div>
+
+    <div class="shell">
+      <div class="side">
+        <div class="side__brand">
+          <span class="side__mark">ACQI</span>
+          <span class="side__sub">Read-only</span>
+        </div>
+        <nav id="side" aria-label="Preview navigation"></nav>
+        <p class="mono" style="padding: 0.9rem 1rem 0; color: var(--ink-faint); font-size: 0.62rem; line-height: 1.5">
+          Sample data.<br />Nothing saves. Nothing runs.
+        </p>
+      </div>
+
+      <div class="main">
+        <div class="topbar">
+          <div class="crumb" id="crumb-current"></div>
+          <div class="dealchip">Northwind Holdings acquiring Contoso Manufacturing</div>
+        </div>
+        <div class="content" id="content"></div>
+      </div>
+    </div>
+
+    <div class="scrim" id="scrim" data-open="false"></div>
+    <aside
+      class="drawer"
+      id="drawer"
+      data-open="false"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Record detail"
+    ></aside>
+
+    <script id="acqi-data" type="application/json">{{DATA}}</script>
+    <script>{{JS}}</script>
+  </body>
+</html>

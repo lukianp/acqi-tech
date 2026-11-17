@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('support');
+  return articles.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+
+const words = (entry.body ?? '').trim().split(/\s+/).filter(Boolean).length;
+const minutes = Math.max(1, Math.round(words / 220));
+
+const fmt = (iso: string) =>
+  new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const all = (await getCollection('support')).sort((a, b) => a.data.order - b.data.order);
+const idx = all.findIndex((a) => a.id === entry.id);
+const next = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null;
+---
+
+<Base title={entry.data.title} description={entry.data.description}>
+  <article>
+    <header class="article-head">
+      <div class="wrap">
+        <p class="micro micro--red mb-1">
+          <a href="/support/" style="text-decoration:none">Support</a> · {entry.data.topic}
+        </p>
+        <h1>{entry.data.title}</h1>
+        <p class="lede">{entry.data.description}</p>
+        <div class="article-head__meta mt-2">
+          <span class="micro">Updated {fmt(entry.data.updated)}</span>
+          <span class="micro">{minutes} min read</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="prose">
+          <Content />
+        </div>
+
+        <hr class="mt-3" />
+
+        <div class="cols cols--2 mt-3">
+          <div>
+            <p class="micro mb-1">Next</p>
+            {next ? (
+              <p class="mb-0"><a href={`/support/${next.id}/`}>{next.data.title}</a></p>
+            ) : (
+              <p class="mb-0"><a href="/support/">All articles</a></p>
+            )}
+          </div>
+          <div>
+            <p class="micro mb-1">Disagree, or want the detail</p>
+            <p class="mb-0">
+              Write to <a href="mailto:hello@acqi.tech">hello@acqi.tech</a>. Corrections are
+              published with the article rather than quietly applied.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</Base>

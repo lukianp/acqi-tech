@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+
+const components = [
+  { name: 'Marketing site (acqi.tech)', what: 'These pages, served from Azure Static Web Apps.' },
+  { name: 'Contact form delivery', what: 'The endpoint behind the contact form.' },
+  { name: 'Preview gate', what: 'The shared-password gate in front of /preview.' },
+  { name: 'Licence check service', what: 'The endpoint an installed product calls to validate a licence.' },
+  { name: 'Update channel', what: 'Signed release packages for existing installations.' },
+  { name: 'Support mailbox', what: 'Inbound mail to the support address.' },
+];
+
+const availability = [
+  { name: 'Discovery collectors', state: 'Available', note: 'Microsoft 365, Entra ID, Azure, Active Directory, AWS and Google Cloud. Coverage differs per collector; ask for the current matrix.' },
+  { name: 'Consolidated enterprise views', state: 'Available', note: 'People, applications, workspaces, sites, licensing and information systems with source attribution.' },
+  { name: 'Organisation map', state: 'Available', note: 'Reporting lines and duplication between the two organisations.' },
+  { name: 'Security and compliance assessment', state: 'Partial', note: 'Identity and exposure findings are in. Several control frameworks are still being mapped.' },
+  { name: 'Migration planning', state: 'Available', note: 'Waves, mappings, runbooks and go/no-go.' },
+  { name: 'Migration execution', state: 'Partial', note: 'User, mailbox, SharePoint, OneDrive, Teams, device and server workloads. Database and SaaS workload execution is in development.' },
+  { name: 'Cloud Fit', state: 'Partial', note: 'Azure placement is usable. AWS and Google Cloud placement is in development.' },
+  { name: 'Post-close operations', state: 'Partial', note: 'Day-one command and hypercare are in. The 100-day plan and synergy reconciliation are being rebuilt.' },
+  { name: 'Aria Assist', state: 'Partial', note: 'Works against your own estate record. Actions that would change a production tenant are not enabled.' },
+];
+---
+
+<Base
+  title="Status"
+  description="Service status for acqi.tech. Nothing is monitored yet, and every row says so rather than showing a green light nothing measured."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Trust</p>
+      <h1 class="reveal reveal-2">Nothing on this page is green, because nothing is measured.</h1>
+      <p class="lede reveal reveal-3">
+        We have not built uptime monitoring yet. Rather than print a wall of green badges that
+        no probe feeds, every row below says what it is. When a monitor exists, the row will
+        show what it measured and over what window.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">Service status</h2>
+        <p class="micro section__note">Checked by hand · 17 November 2026</p>
+      </div>
+
+      <table class="table">
+        <caption>Components</caption>
+        <thead>
+          <tr>
+            <th scope="col">Component</th>
+            <th scope="col">What it covers</th>
+            <th scope="col">State</th>
+            <th scope="col">Basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          {components.map((c) => (
+            <tr>
+              <th scope="row">{c.name}</th>
+              <td>{c.what}</td>
+              <td><span class="state state--none">Not monitored</span></td>
+              <td class="small">No probe or synthetic check is configured for this component.</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="note mt-3">
+        <p>
+          <strong>What this means in practice.</strong> An outage would be discovered when
+          someone tells us, not when a monitor fires. For a site of this size that is an
+          acceptable risk, and saying so is more useful than a false assurance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">Product availability</h2>
+        <p class="micro section__note">Maintained by hand, reviewed each release</p>
+      </div>
+
+      <table class="table">
+        <caption>What exists in current builds</caption>
+        <thead>
+          <tr>
+            <th scope="col">Capability</th>
+            <th scope="col">State</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          {availability.map((a) => (
+            <tr>
+              <th scope="row">{a.name}</th>
+              <td>
+                <span class={a.state === 'Available' ? 'state' : 'state state--planned'}>{a.state}</span>
+              </td>
+              <td>{a.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p class="small mt-2 mb-0">
+        Partial means some of the surface works and some of it does not. It is not a synonym for
+        finished. Ask for the specific capability you need before you scope a deployment.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">Past incidents</h2>
+      </div>
+      <div class="cols cols--sidebar">
+        <p class="lede mb-0">No incidents recorded.</p>
+        <div>
+          <p class="mb-0">
+            This page was published on 17 November 2026. There is no incident history before
+            that date because there was no public service to have an incident on. If that
+            changes, entries will be added here with a start time, an end time and a cause, and
+            they will not be quietly removed later.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

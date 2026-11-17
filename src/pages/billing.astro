@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+
+<Base
+  title="Billing"
+  description="How ACQI is licensed and invoiced: annual subscription per installation, invoiced in advance, no online checkout."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Commercial</p>
+      <h1 class="reveal reveal-2">Invoiced annually. No checkout button, on purpose.</h1>
+      <p class="lede reveal reveal-3">
+        An enterprise installation is not a card transaction. Licensing is quoted against a
+        scope, signed on paper, and invoiced in advance. This page explains the mechanics so
+        that finance and procurement can plan around them.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">The model</h2>
+      </div>
+      <div class="cols cols--2">
+        <div class="prose">
+          <p>
+            A licence is granted per installation, for a defined estate, for twelve months. The
+            fee covers the right to run the product in one environment, including its service
+            tier, for any number of named operators up to the agreed limit.
+          </p>
+          <p>
+            Price depends on the size of the estate and the module set you license. We do not
+            publish a price list, because a per-seat figure without scope tells a buyer nothing
+            and invites a comparison that does not hold.
+          </p>
+          <p class="mb-0">
+            There is no consumption meter, no per-run charge and no charge for collector
+            execution. A discovery cycle that reads four million objects costs the same as one
+            that reads four thousand.
+          </p>
+        </div>
+        <div class="panel">
+          <p class="micro mb-2">Included in a licence</p>
+          <ul class="stack-list">
+            <li>Product installation and updates for the licensed estate</li>
+            <li>Shipped collectors and the migration workload set</li>
+            <li>Support during business hours, named engineer</li>
+            <li>Security releases at no additional cost</li>
+            <li>Documentation and the export schema</li>
+          </ul>
+          <p class="micro mt-2 mb-1">Quoted separately</p>
+          <p class="small mb-0">
+            Deployment, estate read engagements, custom collectors, migration delivery support
+            and training. See <a href="/services/">services</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">Payment mechanics</h2>
+      </div>
+      <dl class="defs">
+        <div>
+          <dt>Currency</dt>
+          <dd>GBP or USD, fixed at the order. Invoices are not re-based mid-term.</dd>
+        </div>
+        <div>
+          <dt>Term</dt>
+          <dd>Twelve months from the licence start date, invoiced annually in advance.</dd>
+        </div>
+        <div>
+          <dt>Method</dt>
+          <dd>Bank transfer against an invoice. We do not take card payments, and there is no online checkout.</dd>
+        </div>
+        <div>
+          <dt>Payment terms</dt>
+          <dd>Thirty days from invoice date, unless the order says otherwise.</dd>
+        </div>
+        <div>
+          <dt>Purchase orders</dt>
+          <dd>Accepted. Put the PO number on the order and it will appear on the invoice.</dd>
+        </div>
+        <div>
+          <dt>Tax</dt>
+          <dd>VAT is charged where applicable. Reverse-charge treatment applies for qualifying business customers in the EU. Once the entity is incorporated, the VAT number will appear on every invoice.</dd>
+        </div>
+        <div>
+          <dt>Late payment</dt>
+          <dd>Statutory interest applies after the agreed terms. We will talk to you before we charge it.</dd>
+        </div>
+        <div>
+          <dt>Cancellation</dt>
+          <dd>A licence can be ended at renewal with thirty days' notice. Mid-term termination is governed by the order and the <a href="/legal/terms/">terms</a>.</dd>
+        </div>
+        <div>
+          <dt>Refunds</dt>
+          <dd>Fees are not refundable pro rata, except where the product does not perform as described and the fault is ours and cannot be corrected within a reasonable period.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">Procurement</h2>
+      </div>
+      <div class="cols cols--3">
+        <div class="card">
+          <h3>Security review</h3>
+          <p>A written questionnaire response is available under NDA. It includes items we cannot answer yet, marked as such rather than omitted.</p>
+        </div>
+        <div class="card">
+          <h3>Contracting entity</h3>
+          <p>The entity is in formation. Orders placed now are made with the founders personally and will novate to the company on incorporation, on the same terms.</p>
+        </div>
+        <div class="card">
+          <h3>Invoicing details</h3>
+          <p>Ask for the current invoice template and remittance details at the point of order. Bank details are never sent by email without a call-back verification.</p>
+        </div>
+      </div>
+
+      <div class="note mt-3">
+        <p>
+          <strong>On payment security.</strong> We will never email changed bank details. If you
+          receive a message claiming to be us with new remittance information, call the number on
+          your order before acting on it.
+        </p>
+      </div>
+
+      <p class="mt-3 mb-0">
+        <a class="btn btn--solid" href="/contact/">Request a quote</a>
+        <span class="small" style="margin-left:1rem">Or email <a href={`mailto:${SITE.generalEmail}`}>{SITE.generalEmail}</a></span>
+      </p>
+    </div>
+  </section>
+</Base>

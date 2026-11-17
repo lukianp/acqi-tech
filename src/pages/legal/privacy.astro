@@ -1,0 +1,147 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../site';
+---
+
+<Base
+  title="Privacy notice"
+  description="What acqi.tech collects, why, how long it is kept, and who processes it."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1">Legal</p>
+      <h1>Privacy notice</h1>
+      <div class="article-head__meta">
+        <span class="micro">Last updated 17 November 2026</span>
+        <span class="micro">Applies to acqi.tech</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <div class="note">
+          <p>
+            <strong>Status.</strong> ACQI Technologies is in formation and is not yet an
+            incorporated data controller. Until incorporation, the founders are the controllers
+            of the personal data described here. This notice will be reissued with the company's
+            registration details on incorporation.
+          </p>
+        </div>
+
+        <h2>What this notice covers</h2>
+        <p>
+          This notice covers the public website at acqi.tech, including the contact form and the
+          password-gated product preview. It does not cover the product itself. When ACQI is
+          installed in a customer environment, the customer is the controller of everything the
+          product processes, and we are not a processor of that data.
+        </p>
+
+        <h2>What we collect</h2>
+        <ul>
+          <li>
+            <strong>Contact form.</strong> Name, email address, organisation, topic and message
+            text. You choose what to write; please do not include confidential target data.
+          </li>
+          <li>
+            <strong>Server logs.</strong> The web host records the request path, timestamp,
+            response code, user agent and IP address for every request. These are operational
+            logs, kept for a short period for security and troubleshooting.
+          </li>
+          <li>
+            <strong>Preview session cookie.</strong> A single cookie named
+            <code>acqi_preview</code>, set only after you enter the preview password. It holds a
+            signed session token, expires after twelve hours, and is not used for anything except
+            letting you move between preview screens.
+          </li>
+        </ul>
+        <p>
+          We do not use analytics, advertising, session recording, fingerprinting or any
+          third-party script. There is no consent banner because there is nothing to consent to
+          beyond the cookie described above, which is strictly necessary for a service you asked
+          for.
+        </p>
+
+        <h2>Why we hold it</h2>
+        <table>
+          <thead>
+            <tr><th>Data</th><th>Purpose</th><th>Basis</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Contact form content</td>
+              <td>Replying to your enquiry and keeping a record of the conversation</td>
+              <td>Legitimate interests in responding to a business enquiry; consent where you have given it</td>
+            </tr>
+            <tr>
+              <td>Server logs</td>
+              <td>Security, abuse prevention, fault diagnosis</td>
+              <td>Legitimate interests in operating a safe service</td>
+            </tr>
+            <tr>
+              <td>Preview cookie</td>
+              <td>Maintaining a gate session you asked for</td>
+              <td>Strictly necessary for the service</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>How long we keep it</h2>
+        <ul>
+          <li>Contact enquiries: while the conversation is live, then archived for up to two years.</li>
+          <li>Server logs: up to thirty days, except where an entry is retained as evidence of abuse.</li>
+          <li>Preview cookie: twelve hours from issue, or until you close the session.</li>
+        </ul>
+
+        <h2>Who processes it</h2>
+        <p>
+          The site is hosted on Microsoft Azure Static Web Apps in West US 2. Microsoft processes
+          request logs and contact submissions on our instructions. No other processor receives
+          data from this site. There is no marketing platform, no CRM and no email sequence.
+        </p>
+        <p>
+          Because the host region is in the United States, a transfer outside the UK takes place.
+          It is covered by the UK International Data Transfer Addendum to Microsoft's standard
+          contractual clauses.
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          You can ask for a copy of what we hold about you, ask for it to be corrected, ask for
+          it to be deleted, or object to how it is used. Write to
+          <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a> and we will respond
+          within one month. If you are unhappy with the response you can complain to the
+          Information Commissioner's Office at ico.org.uk.
+        </p>
+
+        <h2>Security</h2>
+        <p>
+          The site is served over TLS. The contact endpoint validates and length-limits input,
+          discards obvious bot submissions, and does not echo submitted content back into a page.
+          The preview gate uses a signed, time-limited cookie rather than a stored password in
+          the browser. More detail is on the <a href="/security/">security page</a>.
+        </p>
+
+        <h2>Children</h2>
+        <p>
+          This is a business website. It is not directed at children and we do not knowingly hold
+          data about anyone under sixteen.
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          Material changes will be marked with a new date at the top of this page. We do not
+          maintain a mailing list, so we cannot notify you directly; the page is the notice.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Privacy questions: <a href={`mailto:${SITE.privacyEmail}`}>{SITE.privacyEmail}</a>.
+          Security reports: <a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a>.
+          Everything else: <a href={`mailto:${SITE.generalEmail}`}>{SITE.generalEmail}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

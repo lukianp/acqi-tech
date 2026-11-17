@@ -1,0 +1,116 @@
+---
+import { SITE, PRIMARY_NAV, FOOTER_COLUMNS } from '../site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Adds noindex + keeps the page out of the sitemap. */
+  noindex?: boolean;
+  /** Canonical path override; defaults to the current pathname. */
+  canonical?: string;
+}
+
+const { title, description = SITE.description, noindex = false, canonical } = Astro.props;
+const path = canonical ?? Astro.url.pathname;
+const canonicalUrl = new URL(path, SITE.origin).href;
+const fullTitle = title === SITE.name ? `${SITE.name} · ${SITE.tagline}` : `${title} · ${SITE.name}`;
+const isCurrent = (href: string) => path === href || path === href.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#fbfaf5" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${SITE.origin}/og-image.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'ACQI Technologies',
+      url: SITE.origin,
+      description: SITE.description,
+      email: SITE.generalEmail,
+      securityContact: { '@type': 'ContactPoint', email: SITE.securityEmail, contactType: 'security' },
+    })} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="brand" href="/" aria-label="ACQI Technologies, home">
+          <span class="brand__mark">ACQI</span>
+          <span class="brand__sub">Technologies</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          {PRIMARY_NAV.map((item) => (
+            <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+          ))}
+          <a class="nav__gate" href="/preview/">App preview</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__top">
+          <div class="footer__col">
+            <a class="brand" href="/" aria-label="ACQI Technologies, home">
+              <span class="brand__mark">ACQI</span>
+              <span class="brand__sub">Technologies</span>
+            </a>
+            <p class="footer__statement mt-2">
+              Enterprise software for acquisition integration. Installed on the customer's own
+              infrastructure, operated by the customer, supported by us.
+            </p>
+          </div>
+          {FOOTER_COLUMNS.map((column) => (
+            <div class="footer__col">
+              <h2>{column.title}</h2>
+              <ul>
+                {column.links.map((link) => (
+                  <li><a href={link.href}>{link.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div class="footer__col">
+            <h2>Contact</h2>
+            <ul>
+              <li><a href={`mailto:${SITE.generalEmail}`}>{SITE.generalEmail}</a></li>
+              <li><a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a></li>
+              <li><a href={`mailto:${SITE.supportEmail}`}>{SITE.supportEmail}</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="micro">{SITE.legalName}</p>
+          <p class="micro">
+            <a href="/legal/privacy/">Privacy</a> · <a href="/legal/terms/">Terms</a> ·
+            <a href="/legal/acceptable-use/">Acceptable use</a>
+          </p>
+          <p class="micro">© {new Date().getFullYear()} ACQI Technologies</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

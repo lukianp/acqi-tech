@@ -1,0 +1,203 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+
+<Base
+  title="Security"
+  description="ACQI security posture: where data lives, how access works, what is audited, and which certifications are planned rather than held."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Trust</p>
+      <h1 class="reveal reveal-2">Security stated as it is, including the gaps.</h1>
+      <p class="lede reveal reveal-3">
+        This page describes the product as it stands today. Where something is planned, it says
+        planned. Where something is not done, it says so. A trust page that reads like a
+        brochure is worse than no trust page at all.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">Where the data lives</h2>
+      </div>
+      <div class="cols cols--2">
+        <div class="prose">
+          <p>
+            The product is installed inside the customer's environment. Estate data,
+            credentials, evidence files and logs stay there. We do not operate a multi-tenant
+            service, we do not receive a copy of your record, and there is no support tunnel into
+            your installation that bypasses your access controls.
+          </p>
+          <p>
+            The only outbound traffic the product initiates by default is the licence check. It
+            carries a licence identifier and a version string. If you enable the optional error
+            telemetry, it carries error signatures and counts, never entity names, file contents
+            or credentials. Both can be disabled, and the licence check can be satisfied offline
+            for air-gapped installations.
+          </p>
+          <p class="mb-0">
+            This marketing website is a separate system. It is a static site hosted on Azure
+            Static Web Apps. It sets no analytics cookies and loads no third-party scripts. See
+            the <a href="/legal/privacy/">privacy notice</a> for what the contact form collects.
+          </p>
+        </div>
+        <div class="panel">
+          <p class="micro mb-2">In the product</p>
+          <dl class="defs" style="border-top:0">
+            <div><dt>At rest</dt><dd>Database and evidence store encrypted with keys you hold.</dd></div>
+            <div><dt>In transit</dt><dd>TLS 1.2 or later to every collector endpoint.</dd></div>
+            <div><dt>Credentials</dt><dd>Held in your secret store, brokered per run, never written to logs.</dd></div>
+            <div><dt>Audit</dt><dd>Every run, approval and export attributable to a named user.</dd></div>
+            <div><dt>Export</dt><dd>Documented schema, no proprietary format lock.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">Access and permissions</h2>
+      </div>
+      <div class="cols cols--3">
+        <div class="card">
+          <h3>Read-only by default</h3>
+          <p>Discovery credentials are scoped read-only. A discovery-only run will refuse a credential that carries write scope to a covered workload.</p>
+        </div>
+        <div class="card">
+          <h3>No standing vendor access</h3>
+          <p>We hold no persistent access to a customer installation. Support access is granted by you, time-boxed, and revoked by you.</p>
+        </div>
+        <div class="card">
+          <h3>Least privilege inside the app</h3>
+          <p>Roles separate discovery operators, reviewers and administrators. A reviewer can see a record without being able to re-run the collector that produced it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">Compliance position</h2>
+        <p class="micro section__note">Checked 17 November 2026</p>
+      </div>
+
+      <table class="table">
+        <caption>Certifications and attestations</caption>
+        <thead>
+          <tr><th scope="col">Item</th><th scope="col">Status</th><th scope="col">Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">ISO/IEC 27001</th>
+            <td><span class="state state--planned">Planned</span></td>
+            <td>Not held. A certification body has not been engaged. The target is certification after the entity is incorporated and the information security management system has run for a full audit cycle.</td>
+          </tr>
+          <tr>
+            <th scope="row">SOC 2 Type II</th>
+            <td><span class="state state--planned">Planned</span></td>
+            <td>Not held. No observation period has started. Because the product is installed rather than hosted, the scope will cover the development and support organisation, not a service platform.</td>
+          </tr>
+          <tr>
+            <th scope="row">Cyber Essentials</th>
+            <td><span class="state state--planned">Planned</span></td>
+            <td>Not held. To be assessed after incorporation, since the scheme requires a legal entity.</td>
+          </tr>
+          <tr>
+            <th scope="row">UK GDPR / DPA 2018</th>
+            <td><span class="state">Designed for</span></td>
+            <td>The installed model means we are not a processor of target data. Where we handle contact details through this site or a support relationship, the privacy notice sets out the basis and retention.</td>
+          </tr>
+          <tr>
+            <th scope="row">Penetration test</th>
+            <td><span class="state state--none">Not yet</span></td>
+            <td>No third-party test has been completed. One is scheduled before the first paid production licence. Results will be summarised here without the detail that would help an attacker.</td>
+          </tr>
+          <tr>
+            <th scope="row">Security questionnaire</th>
+            <td><span class="state state--none">On request</span></td>
+            <td>A current written response is available under NDA. It will include the unanswered items rather than omitting them.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note mt-3">
+        <p>
+          <strong>If a procurement process requires a held certification, we will not pass it
+          today.</strong> We would rather you know that before the questionnaire than after it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">IV</span>
+        <h2 class="section__title">Vulnerability handling and disclosure</h2>
+      </div>
+      <div class="cols cols--2">
+        <div class="prose">
+          <p>
+            Dependencies are pinned and reviewed on a weekly cadence. Every release passes an
+            automated dependency audit and a signed build. A severity-one issue in a shipped
+            version triggers a security release, not a scheduled one.
+          </p>
+          <p>
+            We accept reports from anyone. Send them to
+            <a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a>, ideally with a
+            reproduction. We will acknowledge within two working days, tell you what we intend
+            to do, and credit you if you want credit.
+          </p>
+          <p class="mb-0">
+            We will not pursue a researcher who acts in good faith, stays within the scope of
+            their own installation or this website, and gives us a reasonable window before
+            publishing. There is no paid bounty programme at this time.
+          </p>
+        </div>
+        <div>
+          <dl class="defs">
+            <div><dt>Contact</dt><dd><a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a></dd></div>
+            <div><dt>Machine readable</dt><dd><a href="/.well-known/security.txt">/.well-known/security.txt</a></dd></div>
+            <div><dt>Acknowledgement</dt><dd>Two working days</dd></div>
+            <div><dt>In scope</dt><dd>This website, shipped product builds, the installer and update channel</dd></div>
+            <div><dt>Out of scope</dt><dd>Customer-operated infrastructure, third-party cloud services, social engineering</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">V</span>
+        <h2 class="section__title">Subprocessors</h2>
+      </div>
+      <div class="cols cols--sidebar">
+        <p class="lede mb-0">For the product: none. For this website: one.</p>
+        <div>
+          <p>
+            <strong>Microsoft Azure Static Web Apps</strong> hosts this site and runs the two
+            functions behind the contact form and the preview gate. It processes request logs and
+            the contents of a contact submission. Region: West US 2. No other processor receives
+            data from this site.
+          </p>
+          <p class="mb-0">
+            The product itself has no subprocessors, because it runs in your environment. If that
+            ever changes, this page changes first.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

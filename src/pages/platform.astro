@@ -1,0 +1,268 @@
+---
+import Base from '../layouts/Base.astro';
+
+const surfaces = [
+  { label: 'Overview', note: 'Deal state, open work, exceptions that need a named owner.' },
+  { label: 'Deal', note: 'Target record, deal team, stage gates, diligence requests.' },
+  { label: 'Discovery Hub', note: 'Connector catalogue, run orchestration, topology and collector health.' },
+  { label: 'Discovered Hub', note: 'Results browser for every discovered entity type.' },
+  { label: 'Consolidated Enterprise Views', note: 'People, applications, workspaces, sites, licensing and information systems in one shape.' },
+  { label: 'Organisation Map', note: 'Reporting lines, spans, duplication between the two organisations.' },
+  { label: 'M&A Governance', note: 'Workstreams, decisions, risk register and the issue log.' },
+  { label: 'Analytics', note: 'Estate measures with the query behind each figure.' },
+  { label: 'Security', note: 'Identity posture, exposure findings, control gaps worth pricing.' },
+  { label: 'Compliance', note: 'Obligations mapped to the estate, evidence attached.' },
+  { label: 'Migration', note: 'Waves, mappings, rehearsal, cut-over and go/no-go.' },
+  { label: 'Cloud Fit', note: 'Workload placement and landing zone readiness.' },
+  { label: 'Licensing Hub', note: 'Entitlement against consumption, renewal exposure, duplication.' },
+  { label: 'Operations', note: 'Day-one command, hypercare and run state after close.' },
+  { label: 'Reports', note: 'Board pack, diligence appendix and the export set.' },
+  { label: 'Aria Assist', note: 'In-product assistant over your own estate record. Scoped, audited, no external model call by default.' },
+  { label: 'Setup, Administration, Settings', note: 'Environment connection, roles and policy.' },
+];
+
+const requirements = [
+  ['Operating system', 'Windows 11 or Windows Server 2022 for the operator workstation and service host.'],
+  ['Runtime', 'Bundled. No separate .NET or PowerShell installation is required on the operator workstation.'],
+  ['Database', 'Microsoft SQL Server 2019 or later, in your tenancy. Azure SQL is supported.'],
+  ['Directory', 'Microsoft Entra ID, or Active Directory with Entra Connect.'],
+  ['Network', 'Outbound HTTPS to the target tenant endpoints you approve. No inbound path to the internet is required.'],
+  ['Air gap', 'Supported. Connector payloads can be carried across the boundary as signed archives.'],
+  ['Footprint', 'Service host 4 vCPU, 8 GB memory, 200 GB storage for a mid-size estate. Sizing is confirmed at scoping.'],
+];
+---
+
+<Base
+  title="Platform"
+  description="What ACQI does: discovery, consolidation, assessment, migration planning and post-close operations, running inside the customer's own environment."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Product</p>
+      <h1 class="reveal reveal-2">One evidence set, carried from first discovery to post-close operations.</h1>
+      <p class="lede reveal reveal-3">
+        Most integration programmes fail at the seam between the diligence pack and the
+        delivery plan. Two teams, two spreadsheets, two versions of the estate. ACQI removes
+        the seam by keeping one record from the first collector run to the last hypercare ticket.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">Architecture</h2>
+      </div>
+      <div class="cols cols--2">
+        <div class="prose">
+          <p>
+            The product has three parts. A desktop application that operators work in. A
+            service tier that schedules and executes collector runs. A database and evidence
+            store that hold what was found, when it was found, and which credential read it.
+          </p>
+          <p>
+            All three sit inside your environment. There is no control plane of ours in the
+            request path, and no analytics endpoint that sees your estate.
+          </p>
+          <p class="mb-0">
+            Every collected fact keeps its provenance. If two sources disagree about how many
+            mailboxes a department owns, the product shows both readings, the timestamp of
+            each, and the collector that produced them. It does not average them.
+          </p>
+        </div>
+        <div class="panel">
+          <p class="micro mb-2">Inside the customer boundary</p>
+          <ul class="stack-list">
+            <li>Operator workstation: signed desktop application</li>
+            <li>Service host: run scheduling, credential brokering, execution</li>
+            <li>Database: estate record, conflicts, decisions</li>
+            <li>Evidence store: raw collector output, immutable per run</li>
+            <li>Log stream: local, exportable to your SIEM</li>
+          </ul>
+          <p class="small mt-2 mb-0">
+            Outside the boundary: nothing but the licence check and, if you enable it, the
+            error-signature feed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">The five stages</h2>
+      </div>
+
+      <div class="prose">
+        <h3>Discover</h3>
+        <p>
+          Collectors cover Microsoft 365, Entra ID, Azure, Active Directory, AWS, Google
+          Cloud, and on-premises hypervisor, network and endpoint inventories. Each run is
+          scoped to an explicit set of endpoints and a named credential, and each run produces
+          an evidence file. Read-only permissions are the default and the product will refuse a
+          credential that carries write scope in a discovery-only run.
+        </p>
+
+        <h3>Consolidate</h3>
+        <p>
+          Entities are matched across sources into canonical records: person, application,
+          workspace, site, device, licence, information system. Matching is rule-driven and
+          inspectable, and every merge can be reversed. Where the rules cannot decide, the
+          record is flagged for a human rather than guessed at.
+        </p>
+
+        <h3>Assess</h3>
+        <p>
+          The consolidated estate feeds security, compliance, organisational and commercial
+          analysis. Because the analysis reads the same record as the migration plan, a finding
+          raised in diligence is still visible when the wave that remediates it is scheduled.
+        </p>
+
+        <h3>Plan and migrate</h3>
+        <p>
+          Waves group workloads by dependency, not by convenience. Mappings translate identities,
+          domains, sites and permissions from source to target. A rehearsal runs the plan against
+          recorded state and reports what would have broken. Cut-over executes only what an
+          operator has approved, and every action is logged against the person who approved it.
+        </p>
+
+        <h3>Operate and close</h3>
+        <p>
+          Day-one command shows service health, ticket volume and outstanding exceptions.
+          Hypercare holds the queue until the estate is stable. Synergy tracking compares the
+          modelled saving with the observed one and records the difference, including when the
+          difference is bad news.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">The surfaces an operator works in</h2>
+        <p class="micro section__note">Names as they appear in the product</p>
+      </div>
+
+      <table class="table">
+        <caption>Navigation labels in the buyer view</caption>
+        <thead>
+          <tr><th scope="col">Surface</th><th scope="col">What it holds</th></tr>
+        </thead>
+        <tbody>
+          {surfaces.map((s) => (
+            <tr>
+              <th scope="row">{s.label}</th>
+              <td>{s.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p class="small mt-2 mb-0">
+        A sell-side perspective replaces the buyer tree with exit readiness, remediation, fact
+        book, data room and buyer Q&amp;A surfaces. A deal-side perspective keeps the view to
+        the deal record, settings and the assistant.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">IV</span>
+        <h2 class="section__title">What a deployment needs</h2>
+      </div>
+      <div class="cols cols--2">
+        <dl class="defs">
+          {requirements.map(([term, value]) => (
+            <div>
+              <dt>{term}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))}
+        </dl>
+        <div>
+          <div class="note">
+            <p>
+              <strong>A deployment is a project, not a download.</strong> A first install
+              typically takes two to four weeks of elapsed time: environment review, credential
+              design, a pilot collector run against a non-production slice, then the production
+              scope. We run it with your team rather than shipping a link.
+            </p>
+          </div>
+          <p class="mt-2">
+            If your environment cannot meet these requirements, say so at scoping. There are
+            estates we cannot serve today, and finding that out on day one is cheaper than
+            finding it out in week six.
+          </p>
+          <p class="mb-0">
+            <a class="linkarrow" href="/services/">Deployment services</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">V</span>
+        <h2 class="section__title">Current state</h2>
+      </div>
+      <div class="cols cols--2">
+        <div class="prose">
+          <p>
+            The product is in active development with design partners. Some collectors and some
+            migration workloads are complete; others are scoped but not built. The
+            <a href="/status/">status page</a> lists what exists and what does not, and it does
+            not show a green light for anything we do not measure.
+          </p>
+          <p class="mb-0">
+            We would rather lose a deal to an honest gap list than win one on a promise we
+            cannot keep in the customer's environment.
+          </p>
+        </div>
+        <div>
+          <p class="micro mb-1">Not yet available</p>
+          <ul class="stack-list">
+            <li>Hosted or managed instance. There is no cloud offering.</li>
+            <li>Self-serve trial. Evaluation is a scoped pilot with our engineers.</li>
+            <li>Third-party marketplace billing.</li>
+            <li>ISO 27001 or SOC 2 attestation. Both are planned.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="panel">
+        <div class="cols cols--2">
+          <div>
+            <p class="micro micro--red mb-1">Evaluate</p>
+            <h2 class="mb-1">See the shell before you see the price.</h2>
+            <p class="mb-0">
+              The preview is the real navigation and the real interaction model with a fictional
+              deal loaded. It is gated because we do not publish unreleased screens.
+            </p>
+          </div>
+          <div>
+            <p>
+              Access is issued through the fund's application channel, or on request from a
+              named contact at a prospective customer. The password is not published here.
+            </p>
+            <p class="mb-0">
+              <a class="btn" href="/preview/">Open the preview gate</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

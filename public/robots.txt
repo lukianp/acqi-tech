@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# The preview is gated and is not for indexing. The link is still listed here
+# so that a crawler that ignores the gate does not follow it into every screen.
+Disallow: /preview
+Disallow: /preview/
+Disallow: /api/
+
+Sitemap: https://acqi.tech/sitemap.xml
