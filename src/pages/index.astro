@@ -1,0 +1,229 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+
+const flows = [
+  {
+    num: '01',
+    title: 'Discover',
+    text: 'Connectors read the target estate where it already lives: Microsoft 365, Azure, Active Directory, AWS, Google Cloud, endpoint and network inventories. Each collector writes evidence, not opinion.',
+  },
+  {
+    num: '02',
+    title: 'Consolidate',
+    text: 'One canonical view of people, applications, workspaces, sites, licences and information systems. Conflicts between sources are held open and attributed rather than silently resolved.',
+  },
+  {
+    num: '03',
+    title: 'Assess',
+    text: 'Security posture, compliance obligations, organisational shape and commercial risk, assembled from the same evidence set so that the diligence pack and the integration plan cannot disagree.',
+  },
+  {
+    num: '04',
+    title: 'Plan and migrate',
+    text: 'Waves, mappings, runbooks and go/no-go gates. Rehearsals run against recorded state before anything touches a production tenant.',
+  },
+  {
+    num: '05',
+    title: 'Operate and close',
+    text: 'Day-one command, hypercare queues, synergy tracking and the post-close journal. The estate stays legible after the deal team has moved on.',
+  },
+];
+
+const index = [
+  { href: '/platform/', label: 'The platform', meta: 'Product' },
+  { href: '/services/', label: 'Deployment and delivery services', meta: 'Services' },
+  { href: '/support/', label: 'Support and technical notes', meta: 'Support' },
+  { href: '/security/', label: 'Security and compliance posture', meta: 'Trust' },
+  { href: '/status/', label: 'Service status', meta: 'Trust' },
+  { href: '/billing/', label: 'Billing and licensing', meta: 'Commercial' },
+  { href: '/company/', label: 'The company', meta: 'Company' },
+  { href: '/contact/', label: 'Contact', meta: 'Company' },
+];
+---
+
+<Base title={SITE.name} description={SITE.description}>
+  <section class="hero">
+    <div class="wrap">
+      <p class="micro micro--red hero__kicker reveal">Enterprise software · Installed on your infrastructure</p>
+      <h1 class="reveal reveal-2">The target's estate, read before you sign.</h1>
+      <p class="hero__lede reveal reveal-3">
+        ACQI discovers, consolidates and plans an acquisition target's technology estate.
+        It is installed in your own environment and operated by your own team. No target
+        data is sent to us, and there is no hosted service to connect to.
+      </p>
+      <div class="hero__actions reveal reveal-4">
+        <a class="btn btn--solid" href="/platform/">See the platform</a>
+        <a class="linkarrow" href="/preview/">Open the app preview</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="calligram reveal reveal-4" aria-hidden="true">
+      <span class="calligram__thread" style="top: 34%"></span>
+      <span class="calligram__line">Discovery.</span>
+      <span class="calligram__line calligram__line--ghost">Consolidation.</span>
+      <span class="calligram__line calligram__line--red">A decision you can defend.</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">How it is delivered</h2>
+        <p class="micro section__note">A plain statement of the model</p>
+      </div>
+
+      <div class="cols cols--sidebar">
+        <div>
+          <p class="lede mb-0">
+            ACQI is enterprise software you install. It runs on hardware you control, inside
+            an Azure subscription or data centre you already own.
+          </p>
+        </div>
+        <div>
+          <p>
+            This matters at the point of diligence. A target's asset inventory, identity
+            topology, licence position and security findings are among the most sensitive
+            documents in a transaction. Routing them through a vendor's multi-tenant platform
+            creates a disclosure question that has to be answered in the data room, in the
+            security questionnaire and often in the sale and purchase agreement.
+          </p>
+          <p class="mb-0">
+            With ACQI that question does not arise. The application, its database, its
+            evidence store and its logs all sit inside your boundary. We supply the installer,
+            the licence and the engineering support. You supply the environment and the
+            operators.
+          </p>
+        </div>
+      </div>
+
+      <dl class="defs mt-3">
+        <div>
+          <dt>Delivery</dt>
+          <dd>Windows desktop application plus a service tier, installed by your team from a signed package. An air-gapped installation is supported.</dd>
+        </div>
+        <div>
+          <dt>Data residency</dt>
+          <dd>Target data remains in your environment. We do not receive inventories, credentials, documents or findings.</dd>
+        </div>
+        <div>
+          <dt>Identity</dt>
+          <dd>The application authenticates against your directory. Role assignment stays with your administrators.</dd>
+        </div>
+        <div>
+          <dt>Updates</dt>
+          <dd>Versioned releases, applied on a schedule you set. No silent background upgrades.</dd>
+        </div>
+        <div>
+          <dt>Telemetry</dt>
+          <dd>Off by default. If you turn it on, it carries licence counts and error signatures, never estate content.</dd>
+        </div>
+        <div>
+          <dt>Exit</dt>
+          <dd>Your database and evidence store are documented and exportable. There is no lock-in mechanism in the product.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">The work it covers</h2>
+        <p class="micro section__note">Five stages, one evidence set</p>
+      </div>
+
+      <div class="cols cols--3">
+        {flows.map((flow) => (
+          <article class="card">
+            <p class="micro micro--red mb-1">{flow.num}</p>
+            <h3>{flow.title}</h3>
+            <p>{flow.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="mt-3 mb-0">
+        <a class="linkarrow" href="/platform/">Read the platform detail</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">What we do not claim</h2>
+        <p class="micro section__note">Stated once, kept current</p>
+      </div>
+
+      <div class="cols cols--sidebar">
+        <p class="lede mb-0">A short list, because the rest of the market does not keep one.</p>
+        <div>
+          <ul class="stack-list">
+            <li>No customer names, logos or quoted customer praise on this site. Design partners are covered by confidentiality, and we will not spend their trust on a logo strip.</li>
+            <li>No usage statistics. We have not published adoption numbers because a number without a method behind it is decoration.</li>
+            <li>No certification claimed as held. ISO 27001 and SOC 2 are planned, not achieved, and every page that touches the subject says so.</li>
+            <li>No hosted service. Nothing about the product is delivered as multi-tenant SaaS.</li>
+            <li>No autonomous changes to a production tenant. Migration actions are proposed, reviewed and executed by your operators.</li>
+          </ul>
+          <p class="small mb-0">
+            Where a claim depends on a future event, the page says which event and who owns it.
+            See <a href="/security/">Security</a> for the current position.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">IV</span>
+        <h2 class="section__title">In this site</h2>
+      </div>
+      <ul class="toc">
+        {index.map((item) => (
+          <li>
+            <a href={item.href}>
+              <span class="toc__label">{item.label}</span>
+              <span class="toc__leader" aria-hidden="true"></span>
+              <span class="toc__meta">{item.meta}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="panel">
+        <div class="cols cols--2">
+          <div>
+            <p class="micro micro--red mb-1">Next step</p>
+            <h2 class="mb-1">Bring us a live deal and a date.</h2>
+            <p class="mb-0">
+              The useful first conversation is not a demo. It is a scoping call about the target
+              estate, the diligence timetable and where the evidence has to land.
+            </p>
+          </div>
+          <div>
+            <p>
+              We will tell you plainly whether the product fits, and what a deployment would
+              take in your environment. If it does not fit, we will say so and point you at
+              what does.
+            </p>
+            <p class="mb-0">
+              <a class="btn btn--solid" href="/contact/">Start a scoping conversation</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

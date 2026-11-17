@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+
+const engagements = [
+  {
+    title: 'Deployment',
+    lead: 'Install, connect, prove it reads.',
+    body: 'Environment review, credential design, service host build, a pilot collector run against a non-production slice, then production scope. Ends with your operators running a discovery cycle unaided.',
+    deliverable: 'Working installation, run book, credential register',
+    duration: '2 to 4 weeks elapsed',
+  },
+  {
+    title: 'Estate read',
+    lead: 'A diligence-grade picture without a licence.',
+    body: 'A fixed-scope discovery and consolidation engagement. We install, run the collectors you authorise, consolidate the estate and hand over the record with its evidence. Useful when the deal may not close and a full licence is premature.',
+    deliverable: 'Estate record, conflict register, evidence archive',
+    duration: '3 to 6 weeks elapsed',
+  },
+  {
+    title: 'Integration engineering',
+    lead: 'Collectors and exports for systems we do not cover.',
+    body: 'Custom collector development against your internal systems, or an export pipeline into your data platform, CMDB or reporting stack. Built to the same provenance rules as the shipped collectors.',
+    deliverable: 'Collector package, tests, documentation',
+    duration: 'Scoped per system',
+  },
+  {
+    title: 'Migration delivery support',
+    lead: 'An engineer in the room for the parts that hurt.',
+    body: 'Wave design, mapping review, rehearsal analysis, cut-over command and hypercare. We support your programme; we do not take ownership of your tenant.',
+    deliverable: 'Wave plan, rehearsal report, cut-over log',
+    duration: 'Per wave or per programme',
+  },
+  {
+    title: 'Enablement',
+    lead: 'Make the internal team self-sufficient.',
+    body: 'Operator training for discovery, consolidation, assessment and migration surfaces, plus administrator training for roles, policy and evidence retention.',
+    deliverable: 'Training record, operator handbook',
+    duration: '2 to 5 days',
+  },
+];
+---
+
+<Base
+  title="Services"
+  description="Deployment, estate read, integration engineering, migration delivery support and enablement for ACQI installations."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Services</p>
+      <h1 class="reveal reveal-2">Software that arrives with the people who know how to land it.</h1>
+      <p class="lede reveal reveal-3">
+        An installed product needs an installation. These are the engagements we run, what each
+        one produces, and how long it takes. Everything is quoted against a scope; nothing here
+        is a fixed public price, because a number without scope is a marketing device.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">Engagements</h2>
+      </div>
+
+      <table class="table">
+        <caption>Service catalogue</caption>
+        <thead>
+          <tr>
+            <th scope="col">Engagement</th>
+            <th scope="col">What it is</th>
+            <th scope="col">You receive</th>
+            <th scope="col">Typical duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          {engagements.map((e) => (
+            <tr>
+              <th scope="row">{e.title}</th>
+              <td>
+                <strong>{e.lead}</strong><br />
+                {e.body}
+              </td>
+              <td>{e.deliverable}</td>
+              <td class="nowrap">{e.duration}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">How an engagement runs</h2>
+      </div>
+      <div class="cols cols--2">
+        <ol class="prose" style="padding-left:1.15rem">
+          <li>
+            <strong>Scoping call.</strong> The target estate, the timetable, the systems in
+            scope, the people who will operate the product. No slides.
+          </li>
+          <li>
+            <strong>Written scope.</strong> A short document listing what we will do, what you
+            will do, what is explicitly out of scope, and the assumptions we are relying on.
+          </li>
+          <li>
+            <strong>Environment access.</strong> Your team provisions the hosts and the
+            credentials. We never hold standing access to a customer environment.
+          </li>
+          <li>
+            <strong>Delivery in slices.</strong> Each slice ends with something you can inspect:
+            an installation that runs, a pilot that reads, a record you can query.
+          </li>
+          <li>
+            <strong>Handover.</strong> A run book your team can follow without us, and a named
+            engineer for the support period.
+          </li>
+        </ol>
+        <div>
+          <div class="note">
+            <p>
+              <strong>We do not run production cut-overs for you.</strong> Migration execution
+              belongs to the customer's change process. Our role is to prepare the plan, prove
+              it in rehearsal, and stand beside the operator during the window.
+            </p>
+          </div>
+          <p class="mt-2">
+            Access to a customer environment is granted per engagement, time-boxed, and revoked
+            at handover. Where remote access is required it is brokered through your own
+            privileged access tooling, not ours.
+          </p>
+          <p class="mb-0">
+            <a class="linkarrow" href="/contact/">Ask for a scope</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">Working terms</h2>
+      </div>
+      <div class="cols cols--3">
+        <div class="card">
+          <h3>Sizing</h3>
+          <p>Engagements are sized from the estate, not from headcount. A 4,000-seat estate with three source systems is smaller than a 900-seat estate with fourteen.</p>
+        </div>
+        <div class="card">
+          <h3>Change control</h3>
+          <p>Scope changes are priced before work starts, in writing. We do not bill discovery of a problem we should have found at scoping.</p>
+        </div>
+        <div class="card">
+          <h3>Confidentiality</h3>
+          <p>Mutual NDA before environment access. Findings from your estate are yours. We do not reference your engagement, sector or outcomes without written permission.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,149 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+
+<Base
+  title="Company"
+  description="ACQI Technologies is in formation. What we are building, how we intend to operate, and what we will not do."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1 reveal">Company</p>
+      <h1 class="reveal reveal-2">A company in formation, saying so on its own website.</h1>
+      <p class="lede reveal reveal-3">
+        ACQI Technologies is not yet an incorporated entity. That fact appears in the footer of
+        every page until it stops being true. This page explains what exists, what does not, and
+        what we are building toward.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">I</span>
+        <h2 class="section__title">What we are building</h2>
+      </div>
+      <div class="cols cols--sidebar">
+        <div>
+          <p class="lede mb-0">
+            Software that reads an acquisition target's technology estate and keeps that reading
+            usable from the first diligence request to the last post-close ticket.
+          </p>
+        </div>
+        <div class="prose">
+          <p>
+            Integration work is usually done twice. Once in diligence, by people building a
+            spreadsheet under time pressure. Again after close, by people who cannot see the
+            spreadsheet and do not trust it. The cost is not the duplicated effort. It is the
+            decisions taken on the second reading that contradict the first.
+          </p>
+          <p>
+            We think the fix is structural: one evidence set, with provenance, that every later
+            stage reads from. That is the whole product thesis. Everything in
+            <a href="/platform/">the platform</a> follows from it.
+          </p>
+          <p class="mb-0">
+            We also think it has to run inside the customer's boundary. A target's estate is not
+            something to route through a vendor's tenancy during a live transaction. That
+            constraint shapes the architecture, the commercial model and the way we support
+            customers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">II</span>
+        <h2 class="section__title">How we intend to operate</h2>
+      </div>
+      <div class="cols cols--3">
+        <div class="card">
+          <h3>Say the uncomfortable thing early</h3>
+          <p>If a gap in the product loses us a deal, that is cheaper than a customer discovering the gap in week six. The status page exists for this reason.</p>
+        </div>
+        <div class="card">
+          <h3>No borrowed credibility</h3>
+          <p>No customer logos before there are customers who have agreed to be named. No certification badges before the certificate exists. No invented adoption figures.</p>
+        </div>
+        <div class="card">
+          <h3>Confidentiality is the product</h3>
+          <p>We handle estate data for a living. A customer's sector, deal and findings are not marketing material, and permission to mention them is asked in writing or not at all.</p>
+        </div>
+        <div class="card">
+          <h3>Small surface, deep function</h3>
+          <p>We would rather cover five stages properly than fifteen badly. The product should not have a surface that exists only to fill a menu.</p>
+        </div>
+        <div class="card">
+          <h3>Reversible by default</h3>
+          <p>Merges can be undone. Migration actions are approved, not automatic. Exports are documented. A customer should always be able to leave.</p>
+        </div>
+        <div class="card">
+          <h3>Write it down</h3>
+          <p>Decisions, assumptions and conflicts are recorded with an owner. Undocumented decisions are the reason the second reading of an estate disagrees with the first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="section__num">III</span>
+        <h2 class="section__title">Current position</h2>
+      </div>
+      <dl class="defs">
+        <div>
+          <dt>Legal status</dt>
+          <dd>In formation. No company number, registered office or VAT registration exists yet. Contracts are made with the founders personally until incorporation.</dd>
+        </div>
+        <div>
+          <dt>Product stage</dt>
+          <dd>Active development with design partners. Paid production deployments begin after the entity exists and the first security review is complete.</dd>
+        </div>
+        <div>
+          <dt>Funding</dt>
+          <dd>Founder-funded. No round has closed and no investor is announced. If that changes, it will be stated here with the date.</dd>
+        </div>
+        <div>
+          <dt>Team</dt>
+          <dd>Founder-led, with a small number of contract engineers. We do not publish headcount as a credibility signal.</dd>
+        </div>
+        <div>
+          <dt>Certifications</dt>
+          <dd>None held. See <a href="/security/">security</a> for what is planned and when.</dd>
+        </div>
+        <div>
+          <dt>Trading name</dt>
+          <dd>ACQI Technologies. The wordmark and the name are used by the founders ahead of incorporation.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="panel">
+        <div class="cols cols--2">
+          <div>
+            <p class="micro micro--red mb-1">Contact</p>
+            <h2 class="mb-1">One address reaches a person.</h2>
+            <p class="mb-0">
+              There is no support portal and no ticket queue yet. Mail goes to a founder and is
+              answered by one.
+            </p>
+          </div>
+          <div>
+            <p class="mb-1"><a href={`mailto:${SITE.generalEmail}`}>{SITE.generalEmail}</a> for everything commercial.</p>
+            <p class="mb-1"><a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a> for vulnerabilities and security questions.</p>
+            <p class="mb-0"><a href="/contact/">Contact form</a>, if you would rather not use mail.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

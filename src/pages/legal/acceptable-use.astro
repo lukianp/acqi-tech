@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../site';
+---
+
+<Base
+  title="Acceptable use"
+  description="What you may and may not do on acqi.tech, and with preview access."
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1">Legal</p>
+      <h1>Acceptable use policy</h1>
+      <div class="article-head__meta">
+        <span class="micro">Last updated 17 November 2026</span>
+        <span class="micro">Part of the terms of use</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <p>
+          This policy applies to the public site and to preview access. It is short because it
+          covers a small surface. Breach of it is a breach of the
+          <a href="/legal/terms/">terms of use</a>.
+        </p>
+
+        <h2>Do not attack the site</h2>
+        <p>
+          Do not probe, scan, overload, or attempt to bypass authentication except as part of a
+          coordinated disclosure under the process on the <a href="/security/">security page</a>.
+          If you find a vulnerability, report it to
+          <a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a> rather than
+          demonstrating it against live traffic.
+        </p>
+
+        <h2>Do not scrape or mirror</h2>
+        <p>
+          Automated bulk retrieval of pages, wholesale copying of site content, and republishing
+          under another brand are not permitted. Ordinary search engine indexing of public pages
+          is permitted. The preview is excluded from indexing and must stay that way.
+        </p>
+
+        <h2>Do not share preview credentials</h2>
+        <p>
+          Preview access is issued to named individuals. Do not post the password publicly, do
+          not include it in a document that circulates beyond the recipient, and do not use the
+          preview to demonstrate a working product to a third party. If a colleague needs access,
+          ask us and they will be given their own.
+        </p>
+
+        <h2>Do not put confidential data in the contact form</h2>
+        <p>
+          Describe a situation, not a data set. Do not submit target inventories, credentials,
+          personal data about third parties, or anything you would not send over ordinary email.
+          If we need sensitive material, we will set up an appropriate channel first.
+        </p>
+
+        <h2>Do not misrepresent the product</h2>
+        <p>
+          Do not use material from this site to state that a certification is held, that a
+          customer uses the product, or that a capability is generally available when the site
+          says it is planned or partial. The <a href="/status/">status page</a> is the reference.
+        </p>
+
+        <h2>Do not use the site unlawfully</h2>
+        <p>
+          No unlawful purpose, no infringement of another party's rights, no attempt to interfere
+          with another person's use of the site, and no automated submission of the contact form.
+        </p>
+
+        <h2>Consequences</h2>
+        <p>
+          We may suspend preview access or block traffic where this policy is breached. Where the
+          breach is a genuine security report made in good faith, we will not take action against
+          the reporter, and we will say so in writing if asked.
+        </p>
+
+        <h2>Reporting</h2>
+        <p>
+          Report abuse or a suspected breach to
+          <a href={`mailto:${SITE.securityEmail}`}>{SITE.securityEmail}</a>. We acknowledge within
+          two working days.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

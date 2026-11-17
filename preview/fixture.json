@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "banner": "Preview with sample data. Not connected to any environment.",
+    "deal": "Northwind Holdings acquiring Contoso Manufacturing",
+    "version": "Preview build 2026.11",
+    "note": "Every record below is fictional. Names, counts and findings were written for this preview and do not describe any real organisation."
+  },
+  "deal": {
+    "acquirer": "Northwind Holdings plc",
+    "target": "Contoso Manufacturing Ltd",
+    "sector": "Industrial components",
+    "announced": "14 October 2026",
+    "stage": "Confirmatory diligence",
+    "enterpriseValue": "£412m",
+    "dealTeam": [
+      { "name": "Priya Raghunathan", "role": "Deal lead", "side": "Acquirer" },
+      { "name": "Tom Ekelund", "role": "Integration director", "side": "Acquirer" },
+      { "name": "Marta Oliveira", "role": "CFO", "side": "Target" },
+      { "name": "Daniel Whitcombe", "role": "IT director", "side": "Target" },
+      { "name": "Sian Roberts", "role": "Diligence counsel", "side": "Adviser" }
+    ],
+    "milestones": [
+      { "date": "14 Oct 2026", "label": "Announcement", "state": "done" },
+      { "date": "21 Oct 2026", "label": "Data room opened", "state": "done" },
+      { "date": "04 Nov 2026", "label": "Discovery access granted", "state": "done" },
+      { "date": "28 Nov 2026", "label": "Diligence report issued", "state": "active" },
+      { "date": "12 Dec 2026", "label": "Signing", "state": "pending" },
+      { "date": "Q2 2027", "label": "Completion", "state": "pending" }
+    ]
+  },
+  "kpis": [
+    { "label": "Entities read", "value": "12,481", "note": "Across six collectors" },
+    { "label": "Open conflicts", "value": "37", "note": "Awaiting an owner" },
+    { "label": "Unreadable sources", "value": "2", "note": "Access refused or timed out" },
+    { "label": "Waves planned", "value": "4", "note": "One rehearsed" }
+  ],
+  "sources": [
+    { "name": "Microsoft 365", "objects": 4820, "lastRun": "17 Nov 2026 04:12", "state": "collected", "credential": "acqi-m365-readonly-p1", "scope": "Delegated read, 6 workloads" },
+    { "name": "Entra ID", "objects": 3412, "lastRun": "17 Nov 2026 04:09", "state": "collected", "credential": "acqi-entra-readonly-p1", "scope": "Directory read" },
+    { "name": "Active Directory", "objects": 2988, "lastRun": "17 Nov 2026 03:58", "state": "collected", "credential": "acqi-ad-readonly-p1", "scope": "LDAP read, 3 domains" },
+    { "name": "Azure subscriptions", "objects": 611, "lastRun": "17 Nov 2026 05:02", "state": "collected", "credential": "acqi-az-reader-p1", "scope": "Reader, 4 subscriptions" },
+    { "name": "VMware vCenter", "objects": 0, "lastRun": "16 Nov 2026 22:40", "state": "unreadable", "credential": "acqi-vc-readonly-p1", "scope": "Connection refused after 3 attempts" },
+    { "name": "AWS accounts", "objects": 0, "lastRun": "Never", "state": "not-collected", "credential": "not issued", "scope": "Excluded from phase one scope" },
+    { "name": "Endpoint inventory", "objects": 650, "lastRun": "17 Nov 2026 02:15", "state": "partial", "credential": "acqi-intune-readonly-p1", "scope": "2 of 5 sites returned data" }
+  ],
+  "people": [
+    { "name": "Alina Fenwick", "department": "Finance", "role": "Financial controller", "site": "Leeds", "source": "Entra ID", "state": "collected", "lastSeen": "17 Nov 2026" },
+    { "name": "Bram Oosthuizen", "department": "Operations", "role": "Plant manager", "site": "Rotterdam", "source": "Active Directory", "state": "collected", "lastSeen": "17 Nov 2026" },
+    { "name": "Cerys Talfryn", "department": "Engineering", "role": "Design engineer", "site": "Leeds", "source": "Entra ID", "state": "collected", "lastSeen": "16 Nov 2026" },
+    { "name": "Dmitri Sokolov", "department": "IT", "role": "Network engineer", "site": "Leeds", "source": "Active Directory", "state": "collected", "lastSeen": "17 Nov 2026" },
+    { "name": "Elspeth Nairn", "department": "HR", "role": "People partner", "site": "Leeds", "source": "Entra ID", "state": "collected", "lastSeen": "15 Nov 2026" },
+    { "name": "Farouk Haddad", "department": "Procurement", "role": "Category manager", "site": "Rotterdam", "source": "Entra ID", "state": "collected", "lastSeen": "17 Nov 2026" },
+    { "name": "Greta Lindqvist", "department": "Operations", "role": "Shift supervisor", "site": "Gothenburg", "source": "Active Directory", "state": "collected", "lastSeen": "16 Nov 2026" },
+    { "name": "Hassan Qureshi", "department": "IT", "role": "Service desk analyst", "site": "Leeds", "source": "Entra ID", "state": "collected", "lastSeen": "17 Nov 2026" },
+    { "name": "Iona Petrie", "department": "Finance", "role": "Accounts payable clerk", "site": "Leeds", "source": "Entra ID", "state": "collected", "lastSeen": "10 Nov 2026" },
+    { "name": "Jonas Berg", "department": "Engineering", "role": "Test technician", "site": "Gothenburg", "source": "Active Directory", "state": "collected", "lastSeen": "14 Nov 2026" },
+    { "name": "Katarzyna Wrona", "department": "Operations", "role": "Planner", "site": "Rotterdam", "source": "Entra ID", "state": "collected", "lastSeen": "17 Nov 2026" },
+    { "name": "Service account: bkp-sql-01", "department": "IT", "role": "Backup service principal", "site": "Leeds", "source": "Active Directory", "state": "unreadable", "lastSeen": "Unknown" },
+    { "name": "Contractor pool: agency-north", "department": "Unknown", "role": "Shared contractor identity", "site": "Unknown", "source": "Entra ID", "state": "conflicted", "lastSeen": "03 Nov 2026" },
+    { "name": "Former staff: leavers 2024-2025", "department": "Unknown", "role": "Disabled accounts, not deprovisioned", "site": "Unknown", "source": "Active Directory", "state": "conflicted", "lastSeen": "Various" },
+    { "name": "Field engineering handhelds", "department": "Field service", "role": "Shared device identity", "site": "Multiple", "source": "Endpoint inventory", "state": "not-collected", "lastSeen": "Unknown" }
+  ],
+  "apps": [
+    { "name": "Northwind ERP", "vendor": "Contoso Systems", "category": "Finance", "users": 612, "source": "Azure subscriptions", "state": "collected" },
+    { "name": "Plant historian", "vendor": "InduSoft", "category": "Manufacturing", "users": 148, "source": "VMware vCenter", "state": "unreadable" },
+    { "name": "Payroll bureau portal", "vendor": "Brightpay", "category": "HR", "users": 58, "source": "Entra ID", "state": "collected" },
+    { "name": "Supplier portal", "vendor": "In-house", "category": "Procurement", "users": 1240, "source": "Azure subscriptions", "state": "collected" },
+    { "name": "CAD vault", "vendor": "Dassault", "category": "Engineering", "users": 96, "source": "Active Directory", "state": "collected" },
+    { "name": "Legacy timesheet", "vendor": "Unknown", "category": "Operations", "users": 0, "source": "Active Directory", "state": "conflicted" },
+    { "name": "Quality management", "vendor": "MasterControl", "category": "Quality", "users": 74, "source": "Entra ID", "state": "collected" },
+    { "name": "Shop floor terminals", "vendor": "Siemens", "category": "Manufacturing", "users": 320, "source": "Endpoint inventory", "state": "partial" },
+    { "name": "CRM", "vendor": "HubSpot", "category": "Sales", "users": 41, "source": "Entra ID", "state": "collected" },
+    { "name": "Archive retrieval", "vendor": "Iron Mountain", "category": "Records", "users": 12, "source": "AWS accounts", "state": "not-collected" }
+  ],
+  "workspaces": [
+    { "name": "Finance shared mailbox", "type": "Shared mailbox", "members": 14, "source": "Microsoft 365", "state": "collected" },
+    { "name": "Board papers", "type": "SharePoint site", "members": 9, "source": "Microsoft 365", "state": "collected" },
+    { "name": "Leeds plant operations", "type": "Teams team", "members": 86, "source": "Microsoft 365", "state": "collected" },
+    { "name": "Rotterdam plant operations", "type": "Teams team", "members": 74, "source": "Microsoft 365", "state": "collected" },
+    { "name": "Engineering drawings", "type": "File share", "members": 32, "source": "Active Directory", "state": "partial" },
+    { "name": "Contractor onboarding", "type": "Teams team", "members": 210, "source": "Microsoft 365", "state": "conflicted" },
+    { "name": "Legacy project archive", "type": "SharePoint site", "members": 3, "source": "Microsoft 365", "state": "collected" },
+    { "name": "Field service dispatch", "type": "Shared mailbox", "members": 0, "source": "Endpoint inventory", "state": "not-collected" }
+  ],
+  "sites": [
+    { "name": "Leeds head office", "type": "Head office", "country": "United Kingdom", "headcount": 420, "network": "10.20.0.0/16", "source": "Active Directory", "state": "collected" },
+    { "name": "Rotterdam plant", "type": "Manufacturing", "country": "Netherlands", "headcount": 310, "network": "10.40.0.0/16", "source": "Active Directory", "state": "collected" },
+    { "name": "Gothenburg plant", "type": "Manufacturing", "country": "Sweden", "headcount": 185, "network": "10.52.0.0/16", "source": "Active Directory", "state": "collected" },
+    { "name": "Leeds distribution", "type": "Warehouse", "country": "United Kingdom", "headcount": 64, "network": "10.20.64.0/20", "source": "Active Directory", "state": "collected" },
+    { "name": "Field service engineers", "type": "Remote", "country": "Multiple", "headcount": 96, "network": "None", "source": "Endpoint inventory", "state": "not-collected" },
+    { "name": "Archive warehouse", "type": "Records", "country": "United Kingdom", "headcount": 2, "network": "Unknown", "source": "VMware vCenter", "state": "unreadable" }
+  ],
+  "conflicts": [
+    { "topic": "Headcount disagreement", "a": "HR extract: 1,077", "b": "Entra ID active identities: 1,312", "owner": "Daniel Whitcombe", "state": "open", "raised": "05 Nov 2026" },
+    { "topic": "Mailbox count", "a": "Microsoft 365: 1,204 mailboxes", "b": "Active Directory: 1,188 mailboxes", "owner": "Unassigned", "state": "open", "raised": "06 Nov 2026" },
+    { "topic": "Legacy timesheet ownership", "a": "Operations claims retired 2025", "b": "142 accounts still authenticate", "owner": "Bram Oosthuizen", "state": "open", "raised": "07 Nov 2026" },
+    { "topic": "Rotterdam device count", "a": "Endpoint inventory: 288", "b": "Active Directory: 341", "owner": "Dmitri Sokolov", "state": "decided", "raised": "08 Nov 2026" },
+    { "topic": "Contractor identities", "a": "210 members in onboarding team", "b": "12 named contractors in HR", "owner": "Elspeth Nairn", "state": "open", "raised": "09 Nov 2026" }
+  ],
+  "findings": [
+    { "id": "SEC-014", "title": "Legacy authentication still enabled on 3 domains", "severity": "High", "state": "collected", "evidence": "Entra ID sign-in log, 30 day window" },
+    { "id": "SEC-019", "title": "217 disabled accounts retain mailbox delegation", "severity": "High", "state": "collected", "evidence": "Exchange Online delegation report" },
+    { "id": "SEC-021", "title": "14 service principals with tenant-wide directory read", "severity": "Medium", "state": "collected", "evidence": "Entra ID app registrations" },
+    { "id": "SEC-024", "title": "Two plants on unsupported endpoint OS builds", "severity": "Medium", "state": "partial", "evidence": "2 of 5 sites reported" },
+    { "id": "SEC-027", "title": "Backup service account password age unknown", "severity": "Medium", "state": "unreadable", "evidence": "Active Directory attribute read refused" },
+    { "id": "SEC-031", "title": "AWS control plane not in scope", "severity": "Unknown", "state": "not-collected", "evidence": "No credential issued" }
+  ],
+  "compliance": [
+    { "framework": "ISO 27001:2022", "mapped": 61, "total": 93, "state": "partial" },
+    { "framework": "NIST CSF 2.0", "mapped": 44, "total": 106, "state": "partial" },
+    { "framework": "Cyber Essentials", "mapped": 5, "total": 5, "state": "collected" },
+    { "framework": "GDPR records of processing", "mapped": 12, "total": 31, "state": "partial" },
+    { "framework": "SOX IT general controls", "mapped": 0, "total": 28, "state": "not-collected" }
+  ],
+  "waves": [
+    { "wave": "Wave 0", "name": "Identity foundation", "entities": 3412, "state": "collected", "rehearsed": "Yes, 11 Nov 2026", "findings": 6 },
+    { "wave": "Wave 1", "name": "Leeds office collaboration", "entities": 1840, "state": "collected", "rehearsed": "Yes, 14 Nov 2026", "findings": 19 },
+    { "wave": "Wave 2", "name": "Rotterdam plant", "entities": 902, "state": "partial", "rehearsed": "No", "findings": 0 },
+    { "wave": "Wave 3", "name": "Gothenburg plant", "entities": 640, "state": "partial", "rehearsed": "No", "findings": 0 },
+    { "wave": "Wave 4", "name": "Legacy archive decommission", "entities": 0, "state": "not-collected", "rehearsed": "No", "findings": 0 }
+  ],
+  "licences": [
+    { "product": "Microsoft 365 E3", "entitled": 1200, "assigned": 1088, "state": "collected", "renewal": "31 Mar 2027" },
+    { "product": "Microsoft 365 E5", "entitled": 120, "assigned": 41, "state": "collected", "renewal": "31 Mar 2027" },
+    { "product": "Azure consumption", "entitled": 0, "assigned": 0, "state": "partial", "renewal": "Monthly" },
+    { "product": "CAD seats", "entitled": 110, "assigned": 96, "state": "collected", "renewal": "30 Jun 2027" },
+    { "product": "Quality management seats", "entitled": 80, "assigned": 74, "state": "collected", "renewal": "01 Feb 2027" },
+    { "product": "Endpoint protection", "entitled": 1400, "assigned": 0, "state": "unreadable", "renewal": "15 Dec 2026" }
+  ],
+  "operations": [
+    { "queue": "Identity exceptions", "open": 23, "owner": "Dmitri Sokolov", "state": "collected" },
+    { "queue": "Mail flow faults", "open": 4, "owner": "Hassan Qureshi", "state": "collected" },
+    { "queue": "Access requests from migrated users", "open": 61, "owner": "Service desk", "state": "collected" },
+    { "queue": "Device re-enrolment", "open": 0, "owner": "Unassigned", "state": "not-collected" },
+    { "queue": "Hypercare tickets, week 1", "open": 0, "owner": "Not started", "state": "not-collected" }
+  ],
+  "reports": [
+    { "name": "Diligence appendix: estate", "owner": "Priya Raghunathan", "state": "collected", "generated": "16 Nov 2026" },
+    { "name": "Diligence appendix: security", "owner": "Priya Raghunathan", "state": "collected", "generated": "16 Nov 2026" },
+    { "name": "Board pack: integration readiness", "owner": "Tom Ekelund", "state": "partial", "generated": "Not run" },
+    { "name": "Licence exposure note", "owner": "Marta Oliveira", "state": "partial", "generated": "Not run" },
+    { "name": "Post-close baseline", "owner": "Unassigned", "state": "not-collected", "generated": "Not run" }
+  ],
+  "assistant": {
+    "prompt": "Which sites reported incomplete endpoint data, and what does that change for wave two?",
+    "answer": "Two sites are incomplete: Leeds distribution and Gothenburg plant. The endpoint collector returned data for Leeds head office, Rotterdam plant and Leeds distribution, then stopped. Wave two is scoped to Rotterdam, which reported fully, so the wave is unaffected. The Gothenburg gap does affect wave three: 185 headcount is known from the directory, but device count is not, so the wave cannot be sized yet. Owner: Dmitri Sokolov. Suggested next step: re-run the endpoint collector against the Gothenburg subnet before wave three is planned.",
+    "citations": ["Endpoint inventory, run 17 Nov 2026 02:15", "Active Directory, site attribute", "Wave plan, version 3"]
+  },
+  "roles": [
+    { "role": "Discovery operator", "members": 3, "can": "Run collectors, view evidence" },
+    { "role": "Reviewer", "members": 6, "can": "View records, resolve conflicts, no collector execution" },
+    { "role": "Administrator", "members": 2, "can": "Roles, credentials, retention, exports" },
+    { "role": "Deal team reader", "members": 8, "can": "Read dashboards and reports only" }
+  ],
+  "setup": [
+    { "item": "Service host installed", "state": "done", "detail": "Windows Server 2022, 4 vCPU, 16 GB" },
+    { "item": "Database provisioned", "state": "done", "detail": "SQL Server 2022, customer-managed key" },
+    { "item": "Directory connected", "state": "done", "detail": "Entra ID and 3 AD domains" },
+    { "item": "Credentials registered", "state": "done", "detail": "5 of 7 issued, all read-only" },
+    { "item": "AWS account connected", "state": "pending", "detail": "Excluded from phase one" },
+    { "item": "Telemetry decision recorded", "state": "done", "detail": "Disabled by customer" }
+  ]
+}

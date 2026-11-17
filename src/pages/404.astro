@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Page not found"
+  description="That page is not on this site."
+  noindex={true}
+>
+  <section class="article-head">
+    <div class="wrap">
+      <p class="micro micro--red mb-1">404</p>
+      <h1>Nothing is filed under that address.</h1>
+      <p class="lede">
+        The page may have moved, or the link may have been typed by hand. These are the places
+        people usually want.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cols cols--3">
+        <div class="card">
+          <h2>Platform</h2>
+          <p>What the software does, how it is installed and what it touches.</p>
+          <p class="mt-2"><a href="/platform/">Read about the platform</a></p>
+        </div>
+        <div class="card">
+          <h2>Support</h2>
+          <p>Field notes from integration programmes, written for the people running them.</p>
+          <p class="mt-2"><a href="/support/">Browse the articles</a></p>
+        </div>
+        <div class="card">
+          <h2>Contact</h2>
+          <p>A person reads every message. No sequence, no scoring.</p>
+          <p class="mt-2"><a href="/contact/">Get in touch</a></p>
+        </div>
+      </div>
+      <p class="mt-3"><a href="/">Return to the front page</a></p>
+    </div>
+  </section>
+</Base>

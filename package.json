@@ -1,0 +1,23 @@
+{
+  "name": "acqi-tech",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Public website for ACQI Technologies, Inc.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/prebuild.mjs && astro build && node scripts/postbuild.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node tests/gate.mjs && node tests/contact.mjs && node tests/content.mjs",
+    "lint:content": "node scripts/content-checks.mjs",
+    "lint:links": "node scripts/link-check.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.14.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.7.2"
+  }
+}
